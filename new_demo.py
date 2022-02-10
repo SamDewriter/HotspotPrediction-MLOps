@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 import dvc.api
 
 path = "data/hotspot_demo.csv"
-repo = "/home/mubarak/mlops-demo"
+repo = "/tmp/tmpbsc19vfvdvc-clone"
 version = "v3"
 
 
