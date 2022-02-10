@@ -4,4 +4,4 @@ mlflow
 numpy
 dvc
 logging
-urllib
+urllib3
