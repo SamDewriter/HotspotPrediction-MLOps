@@ -12,7 +12,7 @@ import mlflow
 
 import logging
 
-tracking_uri = f"http://localhost:3256"
+tracking_uri = f"http://localhost:4000"
 mlflow.set_tracking_uri(tracking_uri)
 mlflow.set_experiment("MLOPs Demo")
 
@@ -25,7 +25,7 @@ import dvc.api
 
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
-version = "v2"
+version = "v3"
 
 
 def eval_metrics(actual, pred):
