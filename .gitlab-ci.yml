@@ -2,6 +2,7 @@ train-model:
   image: iterativeai/cml:0-dvc2-base1
   script:
     - pip install -r requirements.txt
+    - mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./artifacts --host 0.0.0.0:4000 &
     - python new_demo.py
 create-cml-report:
   needs: [train-model]
