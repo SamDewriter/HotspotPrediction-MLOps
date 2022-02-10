@@ -3,5 +3,4 @@ sklearn
 mlflow
 numpy
 dvc
-logging
 urllib3
