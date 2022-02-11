@@ -25,7 +25,7 @@ import dvc.api
 
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
-version = "v3"
+version = "v2"
 
 
 def eval_metrics(actual, pred):
@@ -52,8 +52,8 @@ if __name__ == "__main__":
     train, test = train_test_split(data)
 
     # The predicted column is burn_area
-    x_train = train.drop(["burn_area"], axis=1)
-    x_test = test.drop(["burn_area"], axis=1)
+    x_train = train.drop(["burn_area", "Unnamed: 0"], axis=1)
+    x_test = test.drop(["burn_area", "Unnamed: 0"], axis=1)
     y_train = train[["burn_area"]]
     y_test = test[["burn_area"]]
 
