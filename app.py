@@ -1,19 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from tkinter import CENTER
+#from tkinter import CENTER
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import plotly.express as px
-import seaborn as sns
-sns.set()
 import dill
 import base64
-
 from PIL import Image
-image = Image.open('../Downloads/Hotspots.jpg')
+
+image = Image.open('Hotspots.jpg')
 
 st.write('# Hotspots Prediction')
 st.image(image, caption='Hotspot Fire Burning')
