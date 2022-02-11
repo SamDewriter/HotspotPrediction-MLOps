@@ -2,5 +2,10 @@ pandas
 sklearn
 mlflow
 numpy
+plotly-express
+pybase64
 dvc
 urllib3
+streamlit
+dill
+Pillow
