@@ -2,6 +2,11 @@
 # coding: utf-8
 
 #from tkinter import CENTER
+from asyncio import start_server
+import http.server
+from prometheus_client import start_http_server
+
+from wsgiref.simple_server import ServerHandler
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -43,7 +48,7 @@ else:
         broadleaf trees and shrubs (>1m). Woody vegetation cover >10%.""")
         climate_pet = st.sidebar.number_input('climate_pet', min_value=0, max_value=10000, step=1)
         st.sidebar.info("climate_pet describes the Reference evapotranspiration")
-        climate_strad = st.sidebar.number_input('climate_strad', min_value=0, max_value=10000, step=1)
+        climate_srad = st.sidebar.number_input('climate_srad', min_value=0, max_value=10000, step=1)
         st.sidebar.info("climate_strad describes Downward surface shortwave radiation")
         elevation = st.sidebar.number_input('elevation', min_value=0, max_value=10000, step=1)
         st.sidebar.info("elevation describes land elevation")
@@ -53,7 +58,7 @@ else:
                 'climate_vs': climate_vs,
                 'landcover_4': landcover_4,
                 'climate_pet': climate_pet,
-                'climate_strad': climate_strad,
+                'climate_srad': climate_srad,
                 'elevation': elevation
                 }
                                           
@@ -104,7 +109,3 @@ def get_table_download_link_csv(df):
     return href
 
 st.markdown(get_table_download_link_csv(predicted_burn), unsafe_allow_html=True)
-
-
-
-
