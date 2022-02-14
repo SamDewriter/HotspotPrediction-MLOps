@@ -109,3 +109,10 @@ def get_table_download_link_csv(df):
     return href
 
 st.markdown(get_table_download_link_csv(predicted_burn), unsafe_allow_html=True)
+
+
+if __name__ == "__main__":
+  start_http_server(8000)
+  server = http.server.HTTPServer(('', 8501))
+  print("Prometheus metrics available on port 8000")
+  print("Streamlit server available on port 8501")
