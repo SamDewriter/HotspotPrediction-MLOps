@@ -39,9 +39,9 @@ if __name__ == "__main__":
     np.random.seed(40)
 
     # Load the csv file
-    data_url = dvc.api.get_url(path=path, repo=repo,rev=version)
+    #data_url =  dvc.api.get_url(path=path, repo=repo,rev=version)
     try:
-        data = pd.read_csv(data_url, sep=",")
+        data = pd.read_csv("data/hotspot_demo.csv", sep=",")
     except Exception as e:
         logger.exception(
             "Unable to load the training data, check if it's the url is correct"
@@ -83,7 +83,7 @@ if __name__ == "__main__":
         mlflow.log_artifact("targets.csv")
 
         # Log data params
-        mlflow.log_param('data url', data_url)
+        #mlflow.log_param('data url', data_url)
         mlflow.log_param('data_version', version)
         mlflow.log_param('input_rows', data.shape[0])
         mlflow.log_param('input_cols', data.shape[1])
