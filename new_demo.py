@@ -39,9 +39,9 @@ if __name__ == "__main__":
     np.random.seed(40)
 
     # Load the csv file
-    #data_url =  dvc.api.get_url(path=path, repo=repo,rev=version)
+    data_url =  dvc.api.get_url(path=path, repo=repo,rev=version)
     try:
-        data = pd.read_csv("data/hotspot_demo.csv", sep=",")
+        data = pd.read_csv(data_url, sep=",")
     except Exception as e:
         logger.exception(
             "Unable to load the training data, check if it's the url is correct"
