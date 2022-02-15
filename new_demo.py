@@ -25,7 +25,7 @@ import dvc.api
 
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
-version = "v2"
+version = "v4"
 
 
 def eval_metrics(actual, pred):
