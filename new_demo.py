@@ -22,7 +22,6 @@ logger = logging.getLogger(__name__)
 
 # Get URL from DVC
 import dvc.api
-
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
 version = "v4"
