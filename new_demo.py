@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 import dvc.api
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
-version = "v4"
+version = "nv1"
 
 
 def eval_metrics(actual, pred):
