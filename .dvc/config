@@ -1,4 +1,4 @@
 [core]
-    remote = dvc-remote
-['remote "dvc-remote"']
-    url = /tmp/dvc-storage
+    remote = myremote
+['remote "myremote"']
+    url = s3://mubbybucket/dvc-storage

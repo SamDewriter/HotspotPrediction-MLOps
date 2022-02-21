@@ -22,10 +22,9 @@ logger = logging.getLogger(__name__)
 
 # Get URL from DVC
 import dvc.api
-
 path = "data/hotspot_demo.csv"
 repo = "/home/mubarak/mlops-demo"
-version = "v3"
+version = "nv1"
 
 
 def eval_metrics(actual, pred):
@@ -39,7 +38,7 @@ if __name__ == "__main__":
     np.random.seed(40)
 
     # Load the csv file
-    data_url = dvc.api.get_url(path=path, repo=repo,rev=version)
+    data_url =  dvc.api.get_url(path=path, repo=repo,rev=version)
     try:
         data = pd.read_csv(data_url, sep=",")
     except Exception as e:
@@ -52,8 +51,8 @@ if __name__ == "__main__":
     train, test = train_test_split(data)
 
     # The predicted column is burn_area
-    x_train = train.drop(["burn_area"], axis=1)
-    x_test = test.drop(["burn_area"], axis=1)
+    x_train = train.drop(["burn_area", "Unnamed: 0"], axis=1)
+    x_test = test.drop(["burn_area", "Unnamed: 0"], axis=1)
     y_train = train[["burn_area"]]
     y_test = test[["burn_area"]]
 
@@ -83,7 +82,7 @@ if __name__ == "__main__":
         mlflow.log_artifact("targets.csv")
 
         # Log data params
-        mlflow.log_param('data url', data_url)
+        #mlflow.log_param('data url', data_url)
         mlflow.log_param('data_version', version)
         mlflow.log_param('input_rows', data.shape[0])
         mlflow.log_param('input_cols', data.shape[1])
