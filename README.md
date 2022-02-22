@@ -12,12 +12,9 @@ In this demo, different tools that are developed for the management of a machine
 - Docker
 
 ## Installation
-All of the packages used in this project can be installed with the Python package installer pip
+All of the packages used in this project can be installed with the Python package installer pip and are contained in the requirements.txt file
+```pip install requirements.txt```
 
-- pip install venv
-- pip install mlflow[extras]
-- pip install dvc
-- pip install streamlit
 
 ## Project status
 An app was built with streamlit to serve the model and make it available for users.
