@@ -13,6 +13,7 @@ In this demo, different tools that are developed for the management of a machine
 
 ## Installation
 All of the packages used in this project can be installed with the Python package installer pip and are contained in the requirements.txt file
+
 ```pip install requirements.txt```
 
 
