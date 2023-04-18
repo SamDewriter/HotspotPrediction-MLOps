@@ -1,7 +1,5 @@
 import argparse
 import logging
-import os
-import sys
 import warnings
 
 import dvc.api
@@ -56,7 +54,6 @@ def train_model(params):
 
 
     # Load the csv file from dvc repo
-    # Load the csv file from dvc
     remote = str(params.remote)
     version = str(params.dversion)
     run_name = str(params.run_name)
@@ -83,8 +80,8 @@ def train_model(params):
     # x_scaled = scaler.fit_transform(x_train)
     # y_scaled = scaler.fit_transform(y_train)
 
-    alpha = float(params.alpha) if params.alpha > 1 else 0.5
-    l1_ratio = float(params.l1_ratio) if params.l1_ratio > 2 else 0.5
+    alpha = float(params.alpha) if float(params.alpha) > 1 else 0.5
+    l1_ratio = float(params.l1_ratio) if float(params.l1_ratio) > 2 else 0.5
 
     with mlflow.start_run(run_name=run_name):
         lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio)
@@ -106,11 +103,11 @@ def train_model(params):
         
         # Log artifacts: columns used for modelling
         cols_x = pd.DataFrame(list(x_train.columns))
-        cols_x.to_csv('features.csv', header=False, index=False)
+        cols_x.to_csv('utils/features.csv', header=False, index=False)
         mlflow.log_artifact("features.csv")
 
         cols_y = pd.DataFrame(list(y_train.columns))
-        cols_y.to_csv('targets.csv', header=False, index=False)
+        cols_y.to_csv('utils/targets.csv', header=False, index=False)
         mlflow.log_artifact("targets.csv")
 
         # Log data params
